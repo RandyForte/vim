@@ -17,6 +17,10 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'valloric/youcompleteme'
 Plugin 'joshdick/onedark.vim'
 Plugin 'preservim/nerdtree'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'vim-airline/vim-airline'
+Plugin 'honza/vim-snippets'
+Plugin 'SirVer/ultisnips'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
@@ -64,3 +68,9 @@ set shiftwidth=4
 "https://vi.stackexchange.com/questions/422/displaying-tabs-as-characters
 set list
 set listchars=tab:>-
+set guioptions=
+
+" remaping snippet complete keys
+"let g:UltiSnipsExpandTrigger="<c-.>"
+"let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-z>"

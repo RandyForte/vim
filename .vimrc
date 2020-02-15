@@ -15,12 +15,12 @@ Plugin 'VundleVim/Vundle.vim'
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
 Plugin 'valloric/youcompleteme'
-Plugin 'joshdick/onedark.vim'
 Plugin 'preservim/nerdtree'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'vim-airline/vim-airline'
 Plugin 'honza/vim-snippets'
 Plugin 'SirVer/ultisnips'
+Plugin 'morhetz/gruvbox'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
@@ -48,7 +48,7 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-colorscheme onedark
+colorscheme gruvbox
 syntax on
 set number
 "set cursorline
@@ -69,8 +69,4 @@ set shiftwidth=4
 set list
 set listchars=tab:>-
 set guioptions=
-
-" remaping snippet complete keys
-"let g:UltiSnipsExpandTrigger="<c-.>"
-"let g:UltiSnipsJumpForwardTrigger="<c-b>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+set background=dark

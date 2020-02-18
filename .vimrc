@@ -13,6 +13,10 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'honza/vim-snippets'
 Plugin 'SirVer/ultisnips'
 Plugin 'morhetz/gruvbox'
+Plugin 'raimondi/delimitmate'
+Plugin 'yggdroot/indentline'
+Plugin 'xuyuanp/nerdtree-git-plugin'
+Plugin 'leafgarland/typescript-vim'
 call vundle#end()
 filetype plugin indent on " Filetype detection
 
@@ -35,7 +39,10 @@ set shiftwidth=4
 :highlight ExtraWhitespace ctermbg=red guibg=red
 :match ExtraWhitespace /\s\+$/
 "https://vi.stackexchange.com/questions/422/displaying-tabs-as-characters
-set list
-set listchars=tab:>-
+"set list
+"set listchars=tab:>-
 set guioptions=
 set background=dark
+set showcmd
+nnoremap zz :update<cr>
+set autoread

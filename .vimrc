@@ -51,6 +51,7 @@ set showcmd
 nnoremap zz :update<cr>
 set autoread
 map <silent> <C-n> :NERDTreeToggle<CR>
+map <silent> <C-m> :NERDTreeFind<CR>
 let mapleader=" "
 noremap <leader>1 1gt
 noremap <leader>2 2gt

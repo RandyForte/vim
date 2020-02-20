@@ -43,8 +43,8 @@ set shiftwidth=4
 :highlight ExtraWhitespace ctermbg=red guibg=red
 :match ExtraWhitespace /\s\+$/
 "https://vi.stackexchange.com/questions/422/displaying-tabs-as-characters
-"set list
-"set listchars=tab:>-
+set list
+set listchars=tab:>-
 set guioptions=
 set background=dark
 set showcmd
@@ -58,3 +58,6 @@ noremap <leader>2 2gt
 noremap <leader>3 3gt
 noremap <leader>4 4gt
 noremap <leader>5 5gt
+set tabstop=4
+set shiftwidth=4
+set expandtab

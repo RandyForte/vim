@@ -20,6 +20,7 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'google/vim-maktaba'
 Plugin 'google/vim-codefmt'
 Plugin 'google/vim-glaive'
+Plugin 'tpope/vim-commentary'
 call vundle#end()
 call glaive#Install()
 filetype plugin indent on " Filetype detection

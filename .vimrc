@@ -58,6 +58,10 @@ noremap <leader>2 2gt
 noremap <leader>3 3gt
 noremap <leader>4 4gt
 noremap <leader>5 5gt
+noremap <leader>w <C-W><C-K> 
+noremap <leader>a <C-W><C-H> 
+noremap <leader>s <C-W><C-J> 
+noremap <leader>d <C-W><C-L> 
 set tabstop=4
 set shiftwidth=4
 set expandtab

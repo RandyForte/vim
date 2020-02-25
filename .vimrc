@@ -27,6 +27,7 @@ filetype plugin indent on " Filetype detection
 
 " Put your non-Plugin stuff after this line
 colorscheme gruvbox
+let g:gruvbox_contrast_dark = 'hard'
 syntax on
 set number
 "set cursorline

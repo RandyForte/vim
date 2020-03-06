@@ -67,3 +67,4 @@ noremap <leader>d <C-W><C-L>
 set tabstop=4
 set shiftwidth=4
 set expandtab
+let g:UltiSnipsExpandTrigger="<C><tab>"

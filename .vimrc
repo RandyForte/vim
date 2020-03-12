@@ -6,26 +6,23 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
-Plugin 'valloric/youcompleteme'
-Plugin 'preservim/nerdtree'
-Plugin 'sheerun/vim-polyglot'
-Plugin 'vim-airline/vim-airline'
-Plugin 'honza/vim-snippets'
-Plugin 'SirVer/ultisnips'
-Plugin 'morhetz/gruvbox'
-Plugin 'raimondi/delimitmate'
-Plugin 'yggdroot/indentline'
-Plugin 'xuyuanp/nerdtree-git-plugin'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'google/vim-maktaba'
-Plugin 'google/vim-codefmt'
-Plugin 'google/vim-glaive'
 Plugin 'tpope/vim-commentary'
-call vundle#end()
-call glaive#Install()
-filetype plugin indent on " Filetype detection
+Plugin 'preservim/nerdtree'
+Plugin 'xuyuanp/nerdtree-git-plugin'
+Plugin 'vim-airline/vim-airline'
 
-" Put your non-Plugin stuff after this line
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+
+Plugin 'morhetz/gruvbox' "Theme
+Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
+
+Plugin 'raimondi/delimitmate' "Auto Close ()[]
+Plugin 'yggdroot/indentline' "Show line indentation
+
+Plugin 'valloric/youcompleteme'
+Plugin 'sheerun/vim-polyglot'
+call vundle#end()
 colorscheme gruvbox
 let g:gruvbox_contrast_dark = 'hard'
 syntax on
@@ -48,7 +45,6 @@ set shiftwidth=4
 set list
 set listchars=tab:>-
 set guioptions=
-set background=dark
 set showcmd
 nnoremap zz :update<cr>
 set autoread
@@ -68,3 +64,16 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 let g:UltiSnipsExpandTrigger="<C><tab>"
+let g:airline_section_y = '%{strftime("%c")}'
+let g:airline_section_c = '%t' " in section B of the status line display the CWD
+let g:airline_section_b = ''
+let g:airline_section_z = ''
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_close_button = 0 " remove 'X' at the end of the tabline
+let g:airline#extensions#tabline#tabs_label = ''
+let g:airline#extensions#tabline#buffers_label = ''    " can put text here like TABS to denote tabs (I clear it so nothing is shown)
+let g:airline#extensions#tabline#fnamemod = ':t'       " disable file paths in the tab
+let g:airline#extensions#tabline#show_buffers = 0      " dont show buffers in the tabline
+let g:airline#extensions#tabline#tab_min_count = 2     " minimum of 2 tabs needed to display the tabline
+let g:airline#extensions#tabline#show_splits = 0       " disables the buffer name that displays on the right of the tabline
+let g:airline#extensions#tabline#show_tab_nr = 0       " disable tab numbers

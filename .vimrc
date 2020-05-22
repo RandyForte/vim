@@ -22,6 +22,9 @@ Plugin 'yggdroot/indentline' "Show line indentation
 
 Plugin 'valloric/youcompleteme'
 Plugin 'sheerun/vim-polyglot'
+
+Plugin 'majutsushi/tagbar'
+Plugin 'ctrlpvim/ctrlp.vim'
 call vundle#end()
 colorscheme gruvbox
 let g:gruvbox_contrast_dark = 'hard'
@@ -60,6 +63,8 @@ noremap <leader>w <C-W><C-K>
 noremap <leader>a <C-W><C-H> 
 noremap <leader>s <C-W><C-J> 
 noremap <leader>d <C-W><C-L> 
+nmap <F8> :TagbarToggle<CR>
+nmap <F9> :CtrlP<CR>
 set tabstop=4
 set shiftwidth=4
 set expandtab

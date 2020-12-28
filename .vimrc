@@ -1,4 +1,3 @@
-set nocompatible " be iMproved, required
 filetype off " required
 
 " set the runtime path to include Vundle and initialize
@@ -9,13 +8,12 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-commentary'
 Plugin 'preservim/nerdtree'
 Plugin 'xuyuanp/nerdtree-git-plugin'
-Plugin 'vim-airline/vim-airline'
 
 Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
+"Plugin 'honza/vim-snippets'
+"let g:UltiSnipsExpandTrigger="<C><tab>"
 
 Plugin 'morhetz/gruvbox' "Theme
-Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 Plugin 'raimondi/delimitmate' "Auto Close ()[]
 Plugin 'yggdroot/indentline' "Show line indentation
@@ -23,11 +21,13 @@ Plugin 'yggdroot/indentline' "Show line indentation
 Plugin 'valloric/youcompleteme'
 Plugin 'sheerun/vim-polyglot'
 
-Plugin 'majutsushi/tagbar'
+"Plugin 'majutsushi/tagbar'
+"nmap <F8> :TagbarToggle<CR>
 Plugin 'ctrlpvim/ctrlp.vim'
 call vundle#end()
 colorscheme gruvbox
 let g:gruvbox_contrast_dark = 'hard'
+set bg=dark
 syntax on
 set number
 "set cursorline
@@ -50,6 +50,7 @@ set listchars=tab:>-
 set guioptions=
 set showcmd
 nnoremap zz :update<cr>
+" nnoremap ZZ :%!js-beautify<cr>g;g;
 set autoread
 map <silent> <C-n> :NERDTreeToggle<CR>
 map <silent> <C-m> :NERDTreeFind<CR>
@@ -59,26 +60,31 @@ noremap <leader>2 2gt
 noremap <leader>3 3gt
 noremap <leader>4 4gt
 noremap <leader>5 5gt
-noremap <leader>w <C-W><C-K> 
-noremap <leader>a <C-W><C-H> 
-noremap <leader>s <C-W><C-J> 
-noremap <leader>d <C-W><C-L> 
-nmap <F8> :TagbarToggle<CR>
-nmap <F9> :CtrlP<CR>
+noremap <leader>w <C-W><C-K>
+noremap <leader>a <C-W><C-H>
+noremap <leader>s <C-W><C-J>
+noremap <leader>d <C-W><C-L>
+"nmap <F9> :CtrlP<CR>
+nmap ` :CtrlP<CR>
 set tabstop=4
 set shiftwidth=4
 set expandtab
-let g:UltiSnipsExpandTrigger="<C><tab>"
-let g:airline_section_y = '%{strftime("%c")}'
-let g:airline_section_c = '%t' " in section B of the status line display the CWD
-let g:airline_section_b = ''
-let g:airline_section_z = ''
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_close_button = 0 " remove 'X' at the end of the tabline
-let g:airline#extensions#tabline#tabs_label = ''
-let g:airline#extensions#tabline#buffers_label = ''    " can put text here like TABS to denote tabs (I clear it so nothing is shown)
-let g:airline#extensions#tabline#fnamemod = ':t'       " disable file paths in the tab
-let g:airline#extensions#tabline#show_buffers = 0      " dont show buffers in the tabline
-let g:airline#extensions#tabline#tab_min_count = 2     " minimum of 2 tabs needed to display the tabline
-let g:airline#extensions#tabline#show_splits = 0       " disables the buffer name that displays on the right of the tabline
-let g:airline#extensions#tabline#show_tab_nr = 0       " disable tab numbers
+set guitablabel=%t
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+" https://gist.github.com/jordan-acosta/5862724
+" Console log from insert mode; Puts focus inside parentheses
+imap cll console.log();<Esc>==f(a
+" Console log from visual mode on next line, puts visual selection inside parentheses
+vmap cll yocll<Esc>p
+" Console log from normal mode, inserted on next line with word your on inside parentheses
+nmap cll yiwocll<Esc>p
+
+" npm -g install js-beautify
+function FormatJS()
+   if &filetype ==# 'javascript' || &filetype ==# 'typescript' || &filetype ==# 'json'
+       %!js-beautify
+        normal g;g;
+   endif
+endfunction
+:autocmd BufWritePre * call FormatJS()

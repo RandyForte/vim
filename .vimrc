@@ -17,6 +17,8 @@ Plugin 'morhetz/gruvbox' "Theme
 Plugin 'raimondi/delimitmate' "Auto Close ()[]
 Plugin 'yggdroot/indentline' "Show line indentation
 
+Plugin 'dense-analysis/ale'
+
 Plugin 'sheerun/vim-polyglot'
 Plugin 'neoclide/coc.nvim'
 

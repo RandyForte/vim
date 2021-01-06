@@ -9,9 +9,8 @@ Plugin 'tpope/vim-commentary'
 Plugin 'preservim/nerdtree'
 Plugin 'xuyuanp/nerdtree-git-plugin'
 
-Plugin 'SirVer/ultisnips'
-"Plugin 'honza/vim-snippets'
-"let g:UltiSnipsExpandTrigger="<C><tab>"
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 
 Plugin 'morhetz/gruvbox' "Theme
 
@@ -21,9 +20,6 @@ Plugin 'yggdroot/indentline' "Show line indentation
 Plugin 'valloric/youcompleteme'
 Plugin 'sheerun/vim-polyglot'
 
-"Plugin 'majutsushi/tagbar'
-"nmap <F8> :TagbarToggle<CR>
-Plugin 'ctrlpvim/ctrlp.vim'
 call vundle#end()
 colorscheme gruvbox
 let g:gruvbox_contrast_dark = 'hard'
@@ -50,7 +46,6 @@ set listchars=tab:>-
 set guioptions=
 set showcmd
 nnoremap zz :update<cr>
-" nnoremap ZZ :%!js-beautify<cr>g;g;
 set autoread
 map <silent> <C-n> :NERDTreeToggle<CR>
 map <silent> <C-m> :NERDTreeFind<CR>
@@ -65,7 +60,7 @@ noremap <leader>a <C-W><C-H>
 noremap <leader>s <C-W><C-J>
 noremap <leader>d <C-W><C-L>
 "nmap <F9> :CtrlP<CR>
-nmap ` :CtrlP<CR>
+nmap ` :Rg<CR>
 set tabstop=4
 set shiftwidth=4
 set expandtab

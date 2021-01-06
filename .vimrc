@@ -17,8 +17,8 @@ Plugin 'morhetz/gruvbox' "Theme
 Plugin 'raimondi/delimitmate' "Auto Close ()[]
 Plugin 'yggdroot/indentline' "Show line indentation
 
-Plugin 'valloric/youcompleteme'
 Plugin 'sheerun/vim-polyglot'
+Plugin 'neoclide/coc.nvim'
 
 call vundle#end()
 colorscheme gruvbox

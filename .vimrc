@@ -36,6 +36,7 @@ set hlsearch
 set scrolloff=999
 set softtabstop=4
 set shiftwidth=4
+set laststatus=2
 "https://stackoverflow.com/questions/6488683/how-do-i-change-the-vim-cursor-in-insert-normal-mode/30199177
 :autocmd InsertEnter * set cul
 :autocmd InsertLeave * set nocul

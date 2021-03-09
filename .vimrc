@@ -21,6 +21,8 @@ Plugin 'dense-analysis/ale'
 
 Plugin 'sheerun/vim-polyglot'
 Plugin 'neoclide/coc.nvim'
+Plugin 'kkoomen/vim-doge'
+Plugin 'stephpy/vim-php-cs-fixer'
 
 call vundle#end()
 colorscheme gruvbox
@@ -77,6 +79,25 @@ imap cll console.log();<Esc>==f(a
 vmap cll yocll<Esc>p
 " Console log from normal mode, inserted on next line with word your on inside parentheses
 nmap cll yiwocll<Esc>p
+"START COC
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+"set cmdheight=2
+
+"set updatetime=300
+
+"END COC
 
 " npm -g install js-beautify
 function FormatJS()
@@ -86,3 +107,10 @@ function FormatJS()
    endif
 endfunction
 :autocmd BufWritePre * call FormatJS()
+
+let g:php_cs_fixer_path = "~/.composer/vendor/bin/php-cs-fixer"
+autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
+
+:map <F5> :DogeGenerate<CR>
+let g:doge_enable_mappings = 0
+let g:doge_comment_interactive = 0

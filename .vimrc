@@ -110,7 +110,7 @@ endfunction
 :autocmd BufWritePre * call FormatHTML()
 
 function FormatCSS()
-   if &filetype ==# 'css'
+   if &filetype ==# 'css' || &filetype ==# 'scss'
        %!js-beautify --css -s 2
         normal g;g;
    endif

@@ -14,7 +14,7 @@ Plugin 'junegunn/fzf.vim'
 
 Plugin 'morhetz/gruvbox' "Theme
 
-Plugin 'raimondi/delimitmate' "Auto Close ()[]
+" Plugin 'raimondi/delimitmate' "Auto Close ()[]
 Plugin 'yggdroot/indentline' "Show line indentation
 
 Plugin 'dense-analysis/ale'
@@ -30,14 +30,13 @@ let g:gruvbox_contrast_dark = 'hard'
 set bg=dark
 syntax on
 set number
-"set cursorline
 set wildmenu
 set showmatch
 set incsearch
 set hlsearch
 set scrolloff=999
-set softtabstop=4
-set shiftwidth=4
+set softtabstop=2
+set shiftwidth=2
 set laststatus=2
 "https://stackoverflow.com/questions/6488683/how-do-i-change-the-vim-cursor-in-insert-normal-mode/30199177
 :autocmd InsertEnter * set cul
@@ -66,19 +65,14 @@ noremap <leader>s <C-W><C-J>
 noremap <leader>d <C-W><C-L>
 "nmap <F9> :CtrlP<CR>
 nmap ` :Rg<CR>
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 set guitablabel=%t
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-" https://gist.github.com/jordan-acosta/5862724
-" Console log from insert mode; Puts focus inside parentheses
-imap cll console.log();<Esc>==f(a
-" Console log from visual mode on next line, puts visual selection inside parentheses
-vmap cll yocll<Esc>p
-" Console log from normal mode, inserted on next line with word your on inside parentheses
-nmap cll yiwocll<Esc>p
+
+
 "START COC
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -92,25 +86,53 @@ function! s:check_back_space() abort
 endfunction
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
-
 "set cmdheight=2
-
 "set updatetime=300
+" END COC
 
-"END COC
-
+" start Javascript specific
 " npm -g install js-beautify
+" npm -g install eslint
 function FormatJS()
    if &filetype ==# 'javascript' || &filetype ==# 'typescript' || &filetype ==# 'json'
-       %!js-beautify
+       %!js-beautify -s 2
         normal g;g;
    endif
 endfunction
 :autocmd BufWritePre * call FormatJS()
 
-let g:php_cs_fixer_path = "~/.composer/vendor/bin/php-cs-fixer"
-autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
+function FormatHTML()
+   if &filetype ==# 'html'
+       %!js-beautify --html -s 2
+        normal g;g;
+   endif
+endfunction
+:autocmd BufWritePre * call FormatHTML()
 
+function FormatCSS()
+   if &filetype ==# 'css'
+       %!js-beautify --css -s 2
+        normal g;g;
+   endif
+endfunction
+:autocmd BufWritePre * call FormatCSS()
+
+
+" jsdoc
 :map <F5> :DogeGenerate<CR>
 let g:doge_enable_mappings = 0
 let g:doge_comment_interactive = 0
+
+" https://gist.github.com/jordan-acosta/5862724
+" Console log from insert mode; Puts focus inside parentheses
+imap cll console.log();<Esc>==f(a
+" Console log from visual mode on next line, puts visual selection inside parentheses
+vmap cll yocll<Esc>p
+" Console log from normal mode, inserted on next line with word your on inside parentheses
+nmap cll yiwocll<Esc>p
+" end Javascript specific
+
+" start PHP specific
+let g:php_cs_fixer_path = "~/.composer/vendor/bin/php-cs-fixer"
+autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
+" end PHP specific

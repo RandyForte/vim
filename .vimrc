@@ -59,14 +59,16 @@ noremap <leader>2 2gt
 noremap <leader>3 3gt
 noremap <leader>4 4gt
 noremap <leader>5 5gt
-noremap <leader>w <C-W><C-K>
-noremap <leader>a <C-W><C-H>
-noremap <leader>s <C-W><C-J>
-noremap <leader>d <C-W><C-L>
+noremap <leader>k <C-W><C-K>
+noremap <leader>h <C-W><C-H>
+noremap <leader>j <C-W><C-J>
+noremap <leader>l <C-W><C-L>
 "nmap <F9> :CtrlP<CR>
 nmap ` :Rg<CR>
 set tabstop=2
 set shiftwidth=2
+set autoindent
+set smartindent
 set expandtab
 set guitablabel=%t
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
